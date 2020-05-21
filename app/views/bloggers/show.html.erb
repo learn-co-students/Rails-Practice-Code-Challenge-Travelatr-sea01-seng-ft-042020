@@ -1,0 +1,17 @@
+<h1><%= @blogger.name %></h1>
+
+<% likes_sum = 0 %>
+<% @blogger.posts.each do |post| %>
+    <% post.likes += likes_sum %>
+    <% end %>
+Total likes on all posts: <%= likes_sum %>
+Post with the most likes: <%= link_to @post.post_with_max_likes, post_path(@post) %>
+<%= @blogger.bio %>
+<%= @blogger.age %>
+
+
+
+
+
+
+
