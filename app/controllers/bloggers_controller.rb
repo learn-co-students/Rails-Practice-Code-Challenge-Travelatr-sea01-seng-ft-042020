@@ -5,7 +5,8 @@ class BloggersController < ApplicationController
     end
 
     def show
-        @blogger = Blogger.find(:id)
+        @blogger = Blogger.find(params[:id])
+        @post_with_max_likes = @blogger.max_likes
     end
 
     def new
@@ -14,6 +15,7 @@ class BloggersController < ApplicationController
 
     def create
         @blogger = Blogger.create(blogger_params)
+        # byebug
         redirect_to blogger_path(@blogger)
     end
 
