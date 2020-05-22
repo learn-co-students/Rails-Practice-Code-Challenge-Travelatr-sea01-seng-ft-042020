@@ -1,0 +1,7 @@
+<h1><%= @post.title %></h1>
+<ul>
+    <li><%= pluralize(@post.likes,"Like") %><%= button_to("Like", post_path(@post)+'/like') %></li>
+    <li>Author: <%= link_to(@post.blogger_name, blogger_path(@post.blogger)) %> </li>
+    <li>Destination: <%= link_to(@post.destination_location_name, destination_path(@post.destination))%></li>
+</ul>
+<p><%= @post.content %>

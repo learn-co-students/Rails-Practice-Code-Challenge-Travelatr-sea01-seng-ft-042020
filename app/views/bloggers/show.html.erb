@@ -1,0 +1,9 @@
+<h1><%= @blogger.name %></h1>
+<h4><%= pluralize(@blogger.like_count,"Like") %></h6>
+
+<% if @blogger.featured_post %>
+    <h3>Featured Post:</h3><ul>
+        <li><%= link_to(@blogger.featured_post_title, post_path(@blogger.featured_post)) %></li>
+        <li><%= pluralize(@blogger.featured_post_likes,"Like") %></li>
+    </ul>
+<% end %>

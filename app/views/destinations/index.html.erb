@@ -1,0 +1,8 @@
+<h1>Destinations:</h1>
+<ul><% @destinations.each do |destination|%>
+    <li><%= link_to(destination.location_name, destination_path(destination))%></li>
+    <ul>
+        <li><%= pluralize(destination.post_count,"Post") %>
+        <li><%= pluralize(destination.like_count,"Like") %></li>
+    </ul>
+<% end %></ul>

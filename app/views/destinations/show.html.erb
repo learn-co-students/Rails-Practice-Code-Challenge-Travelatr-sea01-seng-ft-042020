@@ -1,0 +1,17 @@
+<h1><%= @destination.location_name %></h1>
+<ul>
+    <li><%= pluralize(@destination.post_count,"Post") %>
+    <li><%= pluralize(@destination.like_count,"Like") %></li>
+</ul>
+
+<% if @destination.featured_post %>
+    <h3>Featured Post:</h3><ul>
+        <li><%= link_to(@destination.featured_post_title, post_path(@destination.featured_post)) %></li>
+        <li><%= pluralize(@destination.featured_post_likes,"Like") %></li>
+    </ul>
+<% end %>
+
+<h3>Latest Post:</h3>
+<ul><% @destination.latest_posts(5).each do |post| %>
+    <li><%= link_to(post.title, post_path(post)) + " (" + pluralize(post.likes,"Like") + ")"%></li>
+<% end %></ul>
